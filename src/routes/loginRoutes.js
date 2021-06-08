@@ -16,12 +16,14 @@ function router(nav1){
     });
     // validation
     loginRouter.post('/valid',async(req,res)=>{
+        
         try {
+            
             const email =req.body.email;
             const password =req.body.password;
 
             const user = await Userdata.findOne({email:email});
-
+            
             // ADMIN [email: admin@gmail.com && password: Admin@123]
             if(email === "admin@gmail.com" && password === "Admin@123"){
                 res.redirect('/adminhome');
